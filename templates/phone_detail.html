@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Phone Detail</title>
+</head>
+<body>
+<center>
+  <button><a href="/phone_list/">На список телефонов</a></button>
+  <h1><b>{{phone_detail.title}}</b></h1>
+  <p><i>{{phone_detail.description}}</i></p>
+  <img src="{{phone_detail.image.url}}" alt="" width="450" height="350">
+  <p><b><i>{{phone_detail.phone_type}}</i></b></p>
+  <p>{{phone_detail.created_date}}</p>
+  <p><b>{{phone_detail.cost}}</b></p>
+  <iframe src="{{phone_detail.video}}" frameborder="0" width="640" height="420"></iframe>
+</center>
+</body>
+</html>
