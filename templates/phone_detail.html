@@ -24,8 +24,16 @@
                     <br>
                     <br>
                     <button type="button" class="btn btn-outline-info">
-    <a href="/phone_list/" style="text-decoration: none; color: blue">На список телефонов</a>
+                        <a href="/phone_list/" style="text-decoration: none; color: blue">На список телефонов</a>
 </button>
+                                 <button type="button" class="btn btn-outline-info">
+    <a href="/phone_list/{{phone_detail.id}}/delete/" style="text-decoration: none; color: blue">Удалить</a>
+</button>
+
+                                     <button type="button" class="btn btn-outline-info">
+    <a href="/phone_list/{{phone_detail.id}}/update/" style="text-decoration: none; color: blue">Редактировать</a>
+</button>
+
                 </div>
             </div>
             <p>{{phone_detail.description}}
