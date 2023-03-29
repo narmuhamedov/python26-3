@@ -4,3 +4,4 @@ from . import models
 #admin.site.register(PhoneShop)
 
 admin.site.register(models.PhoneShop)
+admin.site.register(models.CommentPhone)
