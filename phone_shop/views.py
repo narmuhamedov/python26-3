@@ -34,7 +34,7 @@ class CreatePhoneView(CreateView):
     template_name = 'create_phone.html'
     form_class = forms.PhoneForm
     queryset = models.PhoneShop.objects.all()
-    success_url = '/phone_list/'
+    success_url = '/'
 
     def form_valid(self, form):
         print(form.cleaned_data)
@@ -56,7 +56,7 @@ class CreatePhoneView(CreateView):
 
 class PhoneDeleteView(DeleteView):
     template_name = 'confirm_delete.html'
-    success_url = '/phone_list/'
+    success_url = '/'
 
     def get_object(self, **kwargs):
         phone_id = self.kwargs.get('id')
@@ -71,7 +71,7 @@ class PhoneDeleteView(DeleteView):
 class PhoneUpdateView(UpdateView):
     template_name = 'update_phone.html'
     form_class = forms.PhoneForm
-    success_url = '/phone_list/'
+    success_url = '/'
 
     def get_object(self, **kwargs):
         phone_id = self.kwargs.get('id')
@@ -96,3 +96,18 @@ class PhoneUpdateView(UpdateView):
 #         'object': phone_object
 #     }
 #     return render(request, 'update_phone.html', context)
+
+
+#Кнопка поиск
+class Search(ListView):
+    template_name = 'phone_list.html'
+    context_object_name = 'phone'
+    paginate_by = 5
+
+    def get_queryset(self):
+        return models.PhoneShop.objects.filter(title__icontains=self.request.GET.get('q'))
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['q'] = self.request.GET.get('q')
+        return context
