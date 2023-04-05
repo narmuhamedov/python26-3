@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'blog',
     'phone_shop',
     'parser_app',
+    'custom_users',
 
 ]
 
