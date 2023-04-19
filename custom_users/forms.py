@@ -5,21 +5,14 @@ from . import models
 ADMIN = 1
 VIPClient = 2
 CLIENT = 3
-USER_TYPE = (
-        (ADMIN, 'ADMIN'),
-        (VIPClient, "VIPClient"),
-        (CLIENT, "Client")
-    )
+USER_TYPE = ((ADMIN, "ADMIN"), (VIPClient, "VIPClient"), (CLIENT, "Client"))
 
 MALE = 1
 FEMALE = 2
 OTHER = 3
 
-GENDER_TYPE = (
-        (MALE, "MALE"),
-        (FEMALE, "FEMALE"),
-        (OTHER, "OTHER")
-    )
+GENDER_TYPE = ((MALE, "MALE"), (FEMALE, "FEMALE"), (OTHER, "OTHER"))
+
 
 class CustomRegistrationForm(UserCreationForm):
     email = forms.EmailField(required=True)
@@ -31,19 +24,20 @@ class CustomRegistrationForm(UserCreationForm):
     class Meta:
         model = models.CustomUser
         fields = (
-            'username',
-            'email',
-            'password1',
-            'password2',
-            'first_name',
-            'last_name',
-            'age',
-            'user_type',
-            'gender'
+            "username",
+            "email",
+            "password1",
+            "password2",
+            "first_name",
+            "last_name",
+            "age",
+            "user_type",
+            "gender",
         )
+
     def save(self, commit=True):
         user = super(CustomRegistrationForm, self).save(commit=False)
-        user.email = self.cleaned_data['email']
+        user.email = self.cleaned_data["email"]
         if commit:
             user.save()
         return user

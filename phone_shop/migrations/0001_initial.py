@@ -4,24 +4,43 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='PhoneShop',
+            name="PhoneShop",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=100, verbose_name='Название телефона')),
-                ('description', models.TextField(verbose_name='Описание телефона')),
-                ('image', models.ImageField(upload_to='')),
-                ('phone_type', models.CharField(choices=[('Для школьников', 'Для школьников'), ('Для студентов и взрослых', 'Для студентов и взрослых'), ('Для пенсионеров', 'Для пенсионеров')], max_length=100)),
-                ('created_date', models.DateTimeField(auto_now_add=True)),
-                ('cost', models.PositiveIntegerField()),
-                ('video', models.URLField()),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "title",
+                    models.CharField(max_length=100, verbose_name="Название телефона"),
+                ),
+                ("description", models.TextField(verbose_name="Описание телефона")),
+                ("image", models.ImageField(upload_to="")),
+                (
+                    "phone_type",
+                    models.CharField(
+                        choices=[
+                            ("Для школьников", "Для школьников"),
+                            ("Для студентов и взрослых", "Для студентов и взрослых"),
+                            ("Для пенсионеров", "Для пенсионеров"),
+                        ],
+                        max_length=100,
+                    ),
+                ),
+                ("created_date", models.DateTimeField(auto_now_add=True)),
+                ("cost", models.PositiveIntegerField()),
+                ("video", models.URLField()),
             ],
         ),
     ]
