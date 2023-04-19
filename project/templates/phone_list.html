@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Phone List</title>
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+</head>
+<body>
+{% include 'header.html' %}
+<center>
+    <h1 class="color_white">Список товаров</h1>
+<br><br>
+{% for i in object_list %}
+<div class="card" style="width: 18rem;">
+  <img src="{{i.image.url}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{i.title}}</h5>
+    <p class="card-text">{{i.description}}</p>
+    <a href="/phone_list/{{i.id}}" class="btn btn-primary">Подробнее</a>
+  </div>
+</div>
+
+<hr>
+<hr>
+{% endfor %}
+</center>
+
+
+
+
+
+<!--  <h1>qwerty</h1>-->
+<!--  <h2 class="qwerty">qwerty</h2>-->
+<!--  <h3>qwerty</h3>-->
+<!--  <h4>qwerty</h4>-->
+<!--  <h5>qwerty</h5>-->
+<!--  <h6>qwerty</h6>-->
+<!--  <p>qwerty</p>-->
+<!--  <p>qwerty</p>-->
+<!--  <i>qwerty</i>-->
+<!--  <b class="qwerty">qwerty</b>-->
+<!--  <h2><b><i>qwerty</i></b></h2>-->
+
+{% include 'footer.html' %}
+</body>
+</html>
